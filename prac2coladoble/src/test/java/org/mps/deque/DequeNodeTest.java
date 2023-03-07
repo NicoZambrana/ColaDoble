@@ -62,20 +62,72 @@ public class DequeNodeTest {
             nodo.setPrevious(null);
             assertNull(nodo.previous);
         }
+        @Test
+        @DisplayName("isFirstNode sea true")
+        void isFirstNodeTrue(){
+            assertTrue(nodo.isFirstNode());
+        }
+        @Test
+        @DisplayName("isLastNode sea true")
+        void isLastNodeTrue(){
+            assertTrue(nodo.isLastNode());
+        }
+        @Nested
+        @DisplayName("Añadimos nodos anterior y posterior a nuestro Nodo Único")
+        class PreviousAndNext{
+            DequeNode<Object> anteriornodo;
+            DequeNode<Object> posteriornodo;
+            @BeforeEach
+            void setNodes(){
+                anteriornodo=new DequeNode<>(4,null,null);
+                posteriornodo=new DequeNode<>(16,null,null);
+                nodo.previous=anteriornodo;
+                anteriornodo.next=nodo;
+                nodo.next=posteriornodo;
+                posteriornodo.previous=nodo;
+            }
+            @AfterEach
+            void shutDown(){
+            }
+            @Test
+            @DisplayName("getPrevious devuelve el nodo anterior")
+            void getPreviousReturnsPreviousNode(){
+                assertEquals(anteriornodo,nodo.getPrevious());
+            }
+            @Test
+            @DisplayName("getNext devuelve el nodo posterior")
+            void getNextReturnsNextNode(){
+                assertEquals(posteriornodo,nodo.getNext());
+            }
+            @Test
+            @DisplayName("isFirstNode devuelve falso si no es el primer nodo")
+            void isFirstNodeFalse(){
+                assertFalse(nodo.isFirstNode());
+            }
+            @Test
+            @DisplayName("isLastNode devuelve falso si no es el último nodo")
+            void isLastNodeFalse(){
+                assertFalse(nodo.isLastNode());
+            }
+            @Test
+            @DisplayName("isNotATerminalNode devuelve verdadero para el nodo intermedio")
+            void isNotATerminalNodeTrue(){
+                assertTrue(nodo.isNotATerminalNode());
+            }
+            @Test
+            @DisplayName("isNotATerminalNode devuelve falso para el nodo primero")
+            void isNotATerminalNodeFalseForFirstNode(){
+                assertFalse(anteriornodo.isNotATerminalNode());
+            }
+            @Test
+            @DisplayName("isNotATerminalNode devuelve falso para el nodo último")
+            void isNotATerminalNodeFalseForLastNode(){
+                assertFalse(posteriornodo.isNotATerminalNode());
+            }
+
+        }
     }
 
-    @Test
-    @DisplayName("isFirstNode sea true")
-    void isFirstNodeTrue(){
-        //si uso el objeto "nodo" declarado al comienzo del codigo, da un error , no entiendo por que
-        DequeNode<Object> nodo1=new DequeNode<>(13,null,null);
-        assertTrue(nodo1.isFirstNode());
-    }
-    @Test
-    @DisplayName("isLastNode sea true")
-    void isLastNodeTrue(){
-        //si uso el objeto "nodo" declarado al comienzo del codigo, da un error , no entiendo por que
-        DequeNode<Object> nodo1=new DequeNode<>(13,null,null);
-        assertTrue(nodo1.isLastNode());
-    }
+
+
 }
