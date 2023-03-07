@@ -15,13 +15,13 @@ public class DequeNodeTest {
      * 6.SetPrevius sea un Nodo
      * 7.Getnext sea null
      *              8.Getnext sea Nodo
-     * 7.isFirstNode sea true
-     * 8.isfirstNode sea false
-     * 9.isLastNode sea true
-     * 10.isLastNode sea false
-     * 11.isNotATerminalNode sea true
-     * 12.isNotATerminalNode sea false porque es First
-     * 13.isNotATerminalNode sea false porque es Last
+     * 9.isFirstNode sea true
+     *              10.isfirstNode sea false
+     * 11.isLastNode sea true
+     *              12.isLastNode sea false
+     *              13.isNotATerminalNode sea true
+     *              14.isNotATerminalNode sea false porque es First
+     *              15.isNotATerminalNode sea false porque es Last
      */
     DequeNode<Object> nodo;
     @Nested
@@ -55,6 +55,7 @@ public class DequeNodeTest {
         void getPreviusIsNull(){
             assertNull(nodo.getPrevious());
         }
+
         @Test
         @DisplayName("Set a previus NullNode")
         void setPreviusNull(){
@@ -63,4 +64,18 @@ public class DequeNodeTest {
         }
     }
 
+    @Test
+    @DisplayName("isFirstNode sea true")
+    void isFirstNodeTrue(){
+        //si uso el objeto "nodo" declarado al comienzo del codigo, da un error , no entiendo por que
+        DequeNode<Object> nodo1=new DequeNode<>(13,null,null);
+        assertTrue(nodo1.isFirstNode());
+    }
+    @Test
+    @DisplayName("isLastNode sea true")
+    void isLastNodeTrue(){
+        //si uso el objeto "nodo" declarado al comienzo del codigo, da un error , no entiendo por que
+        DequeNode<Object> nodo1=new DequeNode<>(13,null,null);
+        assertTrue(nodo1.isLastNode());
+    }
 }

@@ -43,6 +43,7 @@ class DequeNode<T> {
     }
 
     boolean isFirstNode() {
+
         return previous == null;
     }
 
