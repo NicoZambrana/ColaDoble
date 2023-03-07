@@ -83,6 +83,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     @Override
     public int size() {
         // TODO
-        return 0;
+
+        return size;
     }
 }
