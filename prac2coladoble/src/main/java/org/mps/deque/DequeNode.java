@@ -11,7 +11,7 @@ class DequeNode<T> {
     private T item;
     private DequeNode<T> previous;
     private DequeNode<T> next;
-
+    
     DequeNode(T item, DequeNode<T> previous, DequeNode<T> next) {
         this.item = item;
         this.previous = previous;
