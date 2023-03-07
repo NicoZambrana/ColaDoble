@@ -37,12 +37,33 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteFirst() {
-        // TODO
+        if (size==0) {
+          throw new DoubleEndedQueueException("Cola vacía");
+
+        }
+        if(size==1){
+            first=null;
+            last=null;
+        }else{
+            first=first.getNext();
+            first.setPrevious(null);
+        }
+        size--;
     }
 
     @Override
     public void deleteLast() {
-        // TODO
+        if (size==0) {
+            throw new DoubleEndedQueueException("Cola vacía");
+        }
+        if(size==1){
+            first=null;
+            last=null;
+        }else{
+            last=last.getPrevious();
+            first.setNext(null);
+        }
+        size--;
     }
 
     @Override
