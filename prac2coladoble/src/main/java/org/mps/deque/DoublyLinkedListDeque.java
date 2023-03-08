@@ -2,9 +2,9 @@ package org.mps.deque;
 
 public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
-    private DequeNode<T> first;
-    private DequeNode<T> last;
-    private int size;
+    protected DequeNode<T> first;
+    protected DequeNode<T> last;
+    protected int size;
 
     /**
      * Crea una doubleLinkedList VACIA con el first y last = null y tamaño = 0     */
@@ -16,7 +16,6 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
-        // TODO
         DequeNode<T> nodo= new DequeNode<T>(value,null,null);
         if(this.size==0){
             first=nodo;
@@ -32,7 +31,6 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void append(T value) {
-        // TODO
         DequeNode<T> nodo= new DequeNode<T>(value,null,null);
         if(this.size==0){
             first=nodo;
@@ -80,7 +78,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public T first() {
         T firstElement;
         if(size==0){
-            firstElement=null;
+            throw new DoubleEndedQueueException("Cola vacía");
         }else{
             firstElement=first.getItem();
         }
@@ -89,10 +87,9 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public T last() {
-        // TODO
         T lastElement;
         if(size==0){
-            lastElement=null;
+            throw new DoubleEndedQueueException("Cola vacía");
         }else{
             lastElement=first.getItem();
         }
@@ -101,7 +98,6 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public int size() {
-        // TODO
 
         return size;
     }

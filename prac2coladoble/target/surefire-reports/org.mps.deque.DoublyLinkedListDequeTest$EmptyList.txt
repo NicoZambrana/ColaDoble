@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: org.mps.deque.DoublyLinkedListDequeTest$EmptyList
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.mps.deque.DoublyLinkedListDequeTest$EmptyList
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.constructorReturnsEmptyList  Time elapsed: 0.003 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.prependWithEmptyList  Time elapsed: 0.002 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.lastOnEmptyListThrowsException  Time elapsed: 0.003 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.firstOnEmptyListThrowsException  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.deleteFirstOnEmptyListThrowsException  Time elapsed: 0 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.deleteLastOnEmptyListThrowsException  Time elapsed: 0.006 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.appendWithEmptyList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.sizeOnEmptyListReturns0  Time elapsed: 0.001 s
