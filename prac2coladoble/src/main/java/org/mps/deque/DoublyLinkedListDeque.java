@@ -91,7 +91,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
         if(size==0){
             throw new DoubleEndedQueueException("Cola vacía");
         }else{
-            lastElement=first.getItem();
+            lastElement=last.getItem();
         }
         return lastElement;
     }

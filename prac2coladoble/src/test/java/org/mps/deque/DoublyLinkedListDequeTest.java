@@ -97,6 +97,96 @@ public class DoublyLinkedListDequeTest {
             assertEquals(0,lista.size());
         }
 
+        @Nested
+        @DisplayName("Pruebas con nodos dentro de la lista")
+        class fullList{
+            @BeforeEach
+            void createList(){
+                lista = new DoublyLinkedListDeque<>();
+                DequeNode<Object> nodo1=new DequeNode<>(12,null,null);
+                DequeNode<Object> nodo2=new DequeNode<>(13,nodo1,null);
+                nodo1.setNext(nodo2);
+                lista.first=nodo1;
+                lista.last=nodo2;
+                lista.size=2;
+
+            }
+            @AfterEach
+            void shutDown(){
+            }
+
+
+            @Test
+            @DisplayName("Prepend de un valor T a una lista devuelve la lista con un nuevo nodo first con el valor T")
+            void prependNode(){
+                lista.prepend(99);
+                assertEquals(99,lista.first.item);
+            }
+             @Test
+            @DisplayName("Append de un valor T a una lista devuelve la lista con un nuevo nodo first con el valor T")
+            void appendNode(){
+                lista.append(99);
+                assertEquals(99,lista.last.item);
+            }
+            // 7. DeleteFirst de una lista SIZE=1 devuelve una lista vacía (null)
+            @Test
+            @DisplayName("DeleteFirst de una lista SIZE=1 devuelve una lista vacía (null)")
+            void borrarFirstElUnicoNodoDeLaLista(){
+                lista = new DoublyLinkedListDeque<>();
+                DequeNode<Object> nodoAux=new DequeNode<>(12,null,null);
+                lista.first=nodoAux;
+                lista.last=nodoAux;
+                lista.size=1;
+                lista.deleteFirst();
+                assertEquals(null,lista.first);
+                assertEquals(null,lista.last);
+                assertEquals(0,lista.size);
+            }
+            // 8. DeleteFirst de una lista devuelve la lista donde su first será el NEXT del antiguo first
+            @Test
+            @DisplayName("DeleteFirst de una lista con mas de un elemento")
+            void deleteFirstOfAFullList(){
+                DequeNode<Object> nextNodo=lista.first.next;
+                lista.deleteFirst();
+                assertEquals(nextNodo,lista.first);
+                assertEquals(1,lista.size);
+            }
+            // 10. DeleteLast de una lista SIZE=1 devuelve una lista vacía (null)
+            @Test
+            @DisplayName("DeleteFirst de una lista SIZE=1 devuelve una lista vacía (null)")
+            void borrarLastElUnicoNodoDeLaLista(){
+                lista = new DoublyLinkedListDeque<>();
+                DequeNode<Object> nodoAux=new DequeNode<>(12,null,null);
+                lista.first=nodoAux;
+                lista.last=nodoAux;
+                lista.size=1;
+                lista.deleteLast();
+                assertEquals(null,lista.first);
+                assertEquals(null,lista.last);
+                assertEquals(0,lista.size);
+            }
+            // 11. DeleteLast de una lista devuelve la lista donde su last será el PREVIOUS del antiguo last
+            @Test
+            @DisplayName("DeleteFirst de una lista con mas de un elemento")
+            void deleteLastOfAFullList(){
+                DequeNode<Object> previousNodo=lista.last.previous;
+                lista.deleteLast();
+                assertEquals(previousNodo,lista.last);
+                assertEquals(1,lista.size);
+            }
+            //13. First de una lista devuelve el primer elemento
+            @Test
+            @DisplayName("First de una lista devuelve el primer elemento")
+            void firstElement(){
+                assertEquals(12,lista.first());
+            }
+            //15. Last de una lista devuelve el último elemento
+            @Test
+            @DisplayName("Last de una lista devuelve el primer elemento")
+            void lastElement(){
+                assertEquals(13,lista.last());
+            }
+        }
 
     }
 }
