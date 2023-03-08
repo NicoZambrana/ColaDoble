@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 prac2coladoble,org.mps.deque,DoubleEndedQueueException,0,4,0,0,0,2,0,1,0,1
-prac2coladoble,org.mps.deque,DoublyLinkedListDeque,100,89,10,6,26,26,8,8,0,8
+prac2coladoble,org.mps.deque,DoublyLinkedListDeque,0,189,0,16,0,52,0,16,0,8
 prac2coladoble,org.mps.deque,DequeNode,0,57,0,8,0,17,0,14,0,10
 prac2coladoble,org.example,Main,7,0,0,0,3,0,2,0,2,0
