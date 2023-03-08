@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DoublyLinkedListDeque.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">prac2coladoble</a> &gt; <a href="index.source.html" class="el_package">org.mps.deque</a> &gt; <span class="el_source">DoublyLinkedListDeque.java</span></div><h1>DoublyLinkedListDeque.java</h1><pre class="source lang-java linenums">package org.mps.deque;
+
+public class DoublyLinkedListDeque&lt;T&gt; implements DoubleEndedQueue&lt;T&gt; {
+
+    private DequeNode&lt;T&gt; first;
+    private DequeNode&lt;T&gt; last;
+    private int size;
+
+    /**
+     * Crea una doubleLinkedList VACIA con el first y last = null y tamaño = 0     */
+<span class="nc" id="L11">    public DoublyLinkedListDeque() {</span>
+<span class="nc" id="L12">        first=null;</span>
+<span class="nc" id="L13">        last=null;</span>
+<span class="nc" id="L14">        size=0;</span>
+<span class="nc" id="L15">    }</span>
+
+    @Override
+    public void prepend(T value) {
+        // TODO
+<span class="nc" id="L20">        DequeNode&lt;T&gt; nodo= new DequeNode&lt;T&gt;(value,null,null);</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        if(this.size==0){</span>
+<span class="nc" id="L22">            first=nodo;</span>
+<span class="nc" id="L23">            last=nodo;</span>
+<span class="nc" id="L24">            size=1;</span>
+        }else {
+<span class="nc" id="L26">            first.setPrevious(nodo);</span>
+<span class="nc" id="L27">            nodo.setNext(first);</span>
+<span class="nc" id="L28">            first=nodo;</span>
+<span class="nc" id="L29">            size++;</span>
+        }
+<span class="nc" id="L31">    }</span>
+
+    @Override
+    public void append(T value) {
+        // TODO
+<span class="nc" id="L36">        DequeNode&lt;T&gt; nodo= new DequeNode&lt;T&gt;(value,null,null);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if(this.size==0){</span>
+<span class="nc" id="L38">            first=nodo;</span>
+<span class="nc" id="L39">            last=nodo;</span>
+<span class="nc" id="L40">            size=1;</span>
+        }else {
+<span class="nc" id="L42">            last.setNext(nodo);</span>
+<span class="nc" id="L43">            nodo.setPrevious(last);</span>
+<span class="nc" id="L44">            last=nodo;</span>
+<span class="nc" id="L45">            size++;</span>
+        }
+<span class="nc" id="L47">    }</span>
+
+    @Override
+    public void deleteFirst() {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (size==0) {</span>
+<span class="nc" id="L52">          throw new DoubleEndedQueueException(&quot;Cola vacía&quot;);</span>
+        }
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if(size==1){</span>
+<span class="nc" id="L55">            first=null;</span>
+<span class="nc" id="L56">            last=null;</span>
+        }else{
+<span class="nc" id="L58">            first=first.getNext();</span>
+<span class="nc" id="L59">            first.setPrevious(null);</span>
+        }
+<span class="nc" id="L61">        size--;</span>
+<span class="nc" id="L62">    }</span>
+
+    @Override
+    public void deleteLast() {
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (size==0) {</span>
+<span class="nc" id="L67">            throw new DoubleEndedQueueException(&quot;Cola vacía&quot;);</span>
+        }
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if(size==1){</span>
+<span class="nc" id="L70">            first=null;</span>
+<span class="nc" id="L71">            last=null;</span>
+        }else{
+<span class="nc" id="L73">            last=last.getPrevious();</span>
+<span class="nc" id="L74">            first.setNext(null);</span>
+        }
+<span class="nc" id="L76">        size--;</span>
+<span class="nc" id="L77">    }</span>
+
+    @Override
+    public T first() {
+        T firstElement;
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if(size==0){</span>
+<span class="nc" id="L83">            firstElement=null;</span>
+        }else{
+<span class="nc" id="L85">            firstElement=first.getItem();</span>
+        }
+<span class="nc" id="L87">        return firstElement;</span>
+    }
+
+    @Override
+    public T last() {
+        // TODO
+        T lastElement;
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if(size==0){</span>
+<span class="nc" id="L95">            lastElement=null;</span>
+        }else{
+<span class="nc" id="L97">            lastElement=first.getItem();</span>
+        }
+<span class="nc" id="L99">        return lastElement;</span>
+    }
+
+    @Override
+    public int size() {
+        // TODO
+
+<span class="nc" id="L106">        return size;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

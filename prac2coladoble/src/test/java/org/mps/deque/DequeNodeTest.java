@@ -22,6 +22,8 @@ public class DequeNodeTest {
      *              13.isNotATerminalNode sea true
      *              14.isNotATerminalNode sea false porque es First
      *              15.isNotATerminalNode sea false porque es Last
+     * 16.SetNext sea null
+     * 17.SetNext sea un nodo
      */
     DequeNode<Object> nodo;
     @Nested
@@ -61,6 +63,14 @@ public class DequeNodeTest {
         void setPreviusNull(){
             nodo.setPrevious(null);
             assertNull(nodo.previous);
+        }
+
+        @Test
+        @DisplayName("Set a previus Node")
+        void setPreviusNode(){
+            DequeNode<Object> nodoAux=new DequeNode<>(13,null,null);
+            nodo.setPrevious(nodoAux);
+            assertEquals(nodoAux,nodo.previous);
         }
         @Test
         @DisplayName("isFirstNode sea true")
@@ -125,6 +135,20 @@ public class DequeNodeTest {
                 assertFalse(posteriornodo.isNotATerminalNode());
             }
 
+            @Test
+            @DisplayName("Set a next NullNode")
+            void setNextNull(){
+                nodo.setNext(null);
+                assertNull(nodo.next);
+            }
+
+            @Test
+            @DisplayName("Set a next Node")
+            void setNextNode(){
+                DequeNode<Object> nodoAux=new DequeNode<>(13,null,null);
+                nodo.setNext(nodoAux);
+                assertEquals(nodoAux,nodo.next);
+            }
         }
     }
 

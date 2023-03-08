@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext
+org.mps.deque.DequeNodeTest$UniqueNode.setItemCorrect  Time elapsed: 0.074 s
+org.mps.deque.DequeNodeTest$UniqueNode.isLastNodeTrue  Time elapsed: 0.003 s
+org.mps.deque.DequeNodeTest$UniqueNode.getItemCorrect  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode.isFirstNodeTrue  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode.setPreviusNode  Time elapsed: 0.001 s
+org.mps.deque.DequeNodeTest$UniqueNode.setPreviusNull  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode.getPreviusIsNull  Time elapsed: 0.001 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.setNextNode  Time elapsed: 0.003 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.setNextNull  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.getNextReturnsNextNode  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.isNotATerminalNodeFalseForFirstNode  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.isFirstNodeFalse  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.isNotATerminalNodeFalseForLastNode  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.isLastNodeFalse  Time elapsed: 0.001 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.isNotATerminalNodeTrue  Time elapsed: 0.002 s
+org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext.getPreviousReturnsPreviousNode  Time elapsed: 0.001 s
