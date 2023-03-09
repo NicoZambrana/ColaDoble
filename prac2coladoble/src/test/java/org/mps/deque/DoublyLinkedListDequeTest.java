@@ -138,8 +138,8 @@ public class DoublyLinkedListDequeTest {
                 lista.last=nodoAux;
                 lista.size=1;
                 lista.deleteFirst();
-                assertEquals(null,lista.first);
-                assertEquals(null,lista.last);
+                assertNull(lista.first);
+                assertNull(lista.last);
                 assertEquals(0,lista.size);
             }
             // 8. DeleteFirst de una lista devuelve la lista donde su first será el NEXT del antiguo first
@@ -161,8 +161,8 @@ public class DoublyLinkedListDequeTest {
                 lista.last=nodoAux;
                 lista.size=1;
                 lista.deleteLast();
-                assertEquals(null,lista.first);
-                assertEquals(null,lista.last);
+                assertNull(lista.first);
+                assertNull(lista.last);
                 assertEquals(0,lista.size);
             }
             // 11. DeleteLast de una lista devuelve la lista donde su last será el PREVIOUS del antiguo last
