@@ -1,5 +1,7 @@
 package org.mps.deque;
-
+/**
+ * @author("Nicolás Zambrana Smith, Jose Manuel Sánchez Navarro)
+ */
 public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     protected DequeNode<T> first;
