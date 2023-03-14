@@ -113,27 +113,29 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
         if(this.size==0){
             throw new DoubleEndedQueueException("Cola vacía");
         }
-        if(index<0 || index>this.size){
+        if(index<0 || index>=this.size){
             throw new IndexOutOfBoundsException("Index fuera de la lista");
         }
         if(index==0){
             res = this.first.item;
-        }
-        if(index==this.size-1){
+        }else if(index==this.size-1){
             res=this.last.item;
-        }
-        DequeNode<T> curr = this.first;
-        int cont=1;
+        }else{
+            DequeNode<T> curr = this.first;
+            int cont=0;
 
-        while(cont<=index && curr!=null){
-            if(cont==index){
-                res= curr.item;
-                curr=null;
-            }else{
-                cont++;
-                curr=curr.next;
+            while(cont<=index && curr!=null){
+                if(cont==index){
+                    res= curr.item;
+                    curr=null;
+                }else{
+                    cont++;
+                    curr=curr.next;
+                }
             }
         }
+
+
         return res;
 
     }

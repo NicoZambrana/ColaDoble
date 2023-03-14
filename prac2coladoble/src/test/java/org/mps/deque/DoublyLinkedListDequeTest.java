@@ -28,9 +28,9 @@ public class DoublyLinkedListDequeTest {
     15. Last de una lista devuelve el último elemento
     16. Size de una lista VACÍA devuelve 0
     17. Get de una lista VACÍA lanza una excepción
-    18. Get de una lista con índice 1 le devuelve el primero
+    18. Get de una lista con índice 0 le devuelve el primero
     19. Get de una lista con índice size-1 le devuelve el último
-    20. Get de una lista con índice 3 le devuelve el tercero
+    20. Get de una lista con índice 2 le devuelve el tercero
     21. Get de una lista con índice -1 lanza una excepción
     22. Get de una lista con índice size+1 lanza una excepción
     23. Contains de una lista VACÍA lanza una excepción
@@ -121,6 +121,7 @@ public class DoublyLinkedListDequeTest {
         void containsOnEmptyListThrowsException(){
             assertThrows(DoubleEndedQueueException.class,()->lista.contains(0));
         }
+
         @Nested
         @DisplayName("Pruebas con nodos dentro de la lista")
         class fullList{
@@ -216,19 +217,44 @@ public class DoublyLinkedListDequeTest {
             }
 
             @Test
-            @DisplayName("Get de una lista con índice 1 le devuelve el primero")
+            @DisplayName("Get de una lista con índice 0 le devuelve el primero")
             void getWithIndex1ReturnsFirstNode(){
-                assertEquals(lista.first.item,lista.get(1));
+                assertEquals(lista.first.item,lista.get(0));
             }
             @Test
             @DisplayName("Get de una lista con índice size-1 le devuelve el último")
-            void getWithIndexSizeMinus1RetunsLastNode(){
+            void getWithIndexSizeMinus1ReturnsLastNode(){
                 assertEquals(lista.last.item,lista.get(lista.size-1));
             }
             @Test
-            @DisplayName("Get de una lista con índice 3 le devuelve el tercero")
+            @DisplayName("Get de una lista con índice 2 le devuelve el tercero")
             void getWithIndex3ReturnsTheThirdNode(){
-                assertEquals(lista.last.previous.item,lista.get(3));
+                assertEquals(lista.last.previous.item,lista.get(2));
+            }
+            @Test
+            @DisplayName("Get de una lista con índice -1 lanza una excepción")
+            void getWithIndexMinus1ThrowsException(){
+                assertThrows(IndexOutOfBoundsException.class, ()->lista.get(-1));
+            }
+            @Test
+            @DisplayName("Get de una lista con índice size lanza una excepción")
+            void getWithIndexSizeThrowsException(){
+                assertThrows(IndexOutOfBoundsException.class,()->lista.get(lista.size));
+            }
+            @Test
+            @DisplayName("Contains de una lista con elemento incluido el primero")
+            void containsAnElementAtTheBeginningOfTheList(){
+                assertTrue(lista.contains(12));
+            }
+            @Test
+            @DisplayName("Contains de una lista con elemento incluido el segundo")
+            void containsAnElementSomewhereElseInTheList(){
+                assertTrue(lista.contains(13));
+            }
+            @Test
+            @DisplayName("Contains de una lista con elemento no incluido")
+            void containsAnElementThatIsNotInTheList(){
+                assertFalse(lista.contains(20));
             }
         }
         @Test
@@ -275,10 +301,10 @@ public class DoublyLinkedListDequeTest {
 
             listaTest.sort(Comparator.naturalOrder());
 
-            assertEquals(1,listaTest.get(1));
-            assertEquals(2,listaTest.get(2));
-            assertEquals(3,listaTest.get(3));
-            assertEquals(4,listaTest.get(4));
+            assertEquals(1,listaTest.get(0));
+            assertEquals(2,listaTest.get(1));
+            assertEquals(3,listaTest.get(2));
+            assertEquals(4,listaTest.get(3));
 
         }
 
