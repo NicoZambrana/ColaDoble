@@ -190,6 +190,25 @@ public class DoublyLinkedListDequeTest {
                 assertEquals(13,lista.last());
             }
         }
+        @Test
+        void removeTest(){
+            DequeNode<Object> nodo1= new DequeNode<Object>(5,null,null);
+            DequeNode<Object> nodo2= new DequeNode<Object>(7,nodo1,null);
+            nodo1.setNext(nodo2);
+            DequeNode<Object> nodo3= new DequeNode<Object>(2,nodo2,null);
+            nodo2.setNext(nodo3);
+            DequeNode<Object> nodo4= new DequeNode<Object>(3,nodo3,null);
+            nodo3.setNext(nodo4);
 
+            DoublyLinkedListDeque<Object> listaTest = new DoublyLinkedListDeque<>();
+            lista.first=nodo1;
+            lista.last=nodo4;
+            lista.size=4;
+
+
+            listaTest.remove(5);
+
+            assertFalse(listaTest.contains(5));
+        }
     }
 }
