@@ -201,13 +201,13 @@ public class DoublyLinkedListDequeTest {
             nodo3.setNext(nodo4);
 
             DoublyLinkedListDeque<Object> listaTest = new DoublyLinkedListDeque<>();
-            lista.first=nodo1;
-            lista.last=nodo4;
-            lista.size=4;
+            listaTest.first=nodo1;
+            listaTest.last=nodo4;
+            listaTest.size=4;
 
 
             listaTest.remove(5);
-
+            assertEquals(3,listaTest.size);
             assertFalse(listaTest.contains(5));
         }
     }

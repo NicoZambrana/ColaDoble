@@ -175,12 +175,12 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
             DequeNode<T> firstAux=first;
             DequeNode<T> lastAux=last;
             while(cont>0 && !encontrado){
-                if(firstAux.getItem()==value){
+                if(firstAux.getItem().equals(value)){
                     encontrado=true;
                     DequeNode<T> next = firstAux.getNext();
                     firstAux.setNext(null);
                     first=next;
-                }else if(lastAux.getItem()==value){
+                }else if(lastAux.getItem().equals(value)){
                     encontrado=true;
                     DequeNode<T> previous = lastAux.getPrevious();
                     lastAux.setPrevious(null);
@@ -188,7 +188,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
                 }else {
                     //si el siguiente es
                     DequeNode<T> next = firstAux.getNext();
-                    if(next.getItem()==value){
+                    if(next.getItem().equals(value)){
                         firstAux.setNext(next.getNext());
                         next.getNext().setPrevious(firstAux);
                         next.setPrevious(null);
@@ -202,6 +202,9 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
                 }
             }
+            if(encontrado){
+                size--;
+            }
         }
 
 
@@ -210,5 +213,35 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     @Override
     public void sort(Comparator<? super T> comparator) {
         //TODO
+        if(size==0 || size==1){
+            //no hace nada
+        }else{
+
+            DequeNode<T> firstAux=first;
+            DequeNode<T> next=first.getNext();
+            int cont1=size;
+            while(cont1>0){
+                int cont2=size;
+                if(cont2>0){
+                    if(comparator.compare(firstAux.getItem(),next.getItem())>0){
+                        firstAux.setNext(next.getNext());
+                        next.setNext(firstAux);
+                        next.setPrevious(firstAux.getPrevious());
+                        firstAux.setPrevious(next);
+                    }
+                    else{
+                        firstAux=next;
+                        next=next.getNext();
+                    }
+                    cont2--;
+                }else{
+                    firstAux=first;
+                    next=firstAux.getNext();
+                }
+                cont1--;
+            }
+
+        }
+
     }
 }
