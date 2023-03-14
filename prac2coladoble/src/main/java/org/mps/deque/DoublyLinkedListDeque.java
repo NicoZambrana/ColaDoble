@@ -128,6 +128,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
         while(cont<=index && curr!=null){
             if(cont==index){
                 res= curr.item;
+                curr=null;
             }else{
                 cont++;
                 curr=curr.next;

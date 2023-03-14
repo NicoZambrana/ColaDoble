@@ -25,6 +25,16 @@ public class DoublyLinkedListDequeTest {
     14. last de una lista VACÍA lanza una excepción
     15. Last de una lista devuelve el último elemento
     16. Size de una lista VACÍA devuelve 0
+    17. Get de una lista VACÍA lanza una excepción
+    18. Get de una lista con índice 1 le devuelve el primero
+    19. Get de una lista con índice size-1 le devuelve el último
+    20. Get de una lista con índice 3 le devuelve el tercero
+    21. Get de una lista con índice -1 lanza una excepción
+    22. Get de una lista con índice size+1 lanza una excepción
+    23. Contains de una lista VACÍA lanza una excepción
+    24. Contains de una lista con elemento incluido el primero
+    25. Contains de una lista con elemento incluido el segundo
+    26. Contains de una lista con elemento no incluido
 
 
      */
@@ -99,7 +109,16 @@ public class DoublyLinkedListDequeTest {
         void sizeOnEmptyListReturns0(){
             assertEquals(0,lista.size());
         }
-
+        @Test
+        @DisplayName("Get de una lista VACÍA lanza una excepción")
+        void getOnEmptyListThrowsException(){
+            assertThrows(DoubleEndedQueueException.class,  ()->lista.get(0));
+        }
+        @Test
+        @DisplayName("Contains de una lista VACÍA lanza una excepción")
+        void containsOnEmptyListThrowsException(){
+            assertThrows(DoubleEndedQueueException.class,()->lista.contains(0));
+        }
         @Nested
         @DisplayName("Pruebas con nodos dentro de la lista")
         class fullList{
@@ -109,9 +128,13 @@ public class DoublyLinkedListDequeTest {
                 DequeNode<Object> nodo1=new DequeNode<>(12,null,null);
                 DequeNode<Object> nodo2=new DequeNode<>(13,nodo1,null);
                 nodo1.setNext(nodo2);
+                DequeNode<Object> nodo3=new DequeNode<>(14,nodo2,null);
+                nodo2.setNext(nodo3);
+                DequeNode<Object> nodo4=new DequeNode<>(15,nodo3,null);
+                nodo3.setNext(nodo4);
                 lista.first=nodo1;
-                lista.last=nodo2;
-                lista.size=2;
+                lista.last=nodo4;
+                lista.size=4;
 
             }
             @AfterEach
@@ -152,7 +175,7 @@ public class DoublyLinkedListDequeTest {
                 DequeNode<Object> nextNodo=lista.first.next;
                 lista.deleteFirst();
                 assertEquals(nextNodo,lista.first);
-                assertEquals(1,lista.size);
+                assertEquals(3,lista.size);
             }
             // 10. DeleteLast de una lista SIZE=1 devuelve una lista vacía (null)
             @Test
@@ -175,7 +198,7 @@ public class DoublyLinkedListDequeTest {
                 DequeNode<Object> previousNodo=lista.last.previous;
                 lista.deleteLast();
                 assertEquals(previousNodo,lista.last);
-                assertEquals(1,lista.size);
+                assertEquals(3,lista.size);
             }
             //13. First de una lista devuelve el primer elemento
             @Test
@@ -187,7 +210,23 @@ public class DoublyLinkedListDequeTest {
             @Test
             @DisplayName("Last de una lista devuelve el primer elemento")
             void lastElement(){
-                assertEquals(13,lista.last());
+                assertEquals(15,lista.last());
+            }
+
+            @Test
+            @DisplayName("Get de una lista con índice 1 le devuelve el primero")
+            void getWithIndex1ReturnsFirstNode(){
+                assertEquals(lista.first.item,lista.get(1));
+            }
+            @Test
+            @DisplayName("Get de una lista con índice size-1 le devuelve el último")
+            void getWithIndexSizeMinus1RetunsLastNode(){
+                assertEquals(lista.last.item,lista.get(lista.size-1));
+            }
+            @Test
+            @DisplayName("Get de una lista con índice 3 le devuelve el tercero")
+            void getWithIndex3ReturnsTheThirdNode(){
+                assertEquals(lista.last.previous.item,lista.get(3));
             }
         }
         @Test
