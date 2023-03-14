@@ -2,6 +2,8 @@ package org.mps.deque;
 
 import org.junit.jupiter.api.*;
 
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author("Nicolás Zambrana Smith, Jose Manuel Sánchez Navarro)
@@ -230,24 +232,56 @@ public class DoublyLinkedListDequeTest {
             }
         }
         @Test
-        void removeTest(){
-            DequeNode<Object> nodo1= new DequeNode<Object>(5,null,null);
-            DequeNode<Object> nodo2= new DequeNode<Object>(7,nodo1,null);
-            nodo1.setNext(nodo2);
-            DequeNode<Object> nodo3= new DequeNode<Object>(2,nodo2,null);
-            nodo2.setNext(nodo3);
-            DequeNode<Object> nodo4= new DequeNode<Object>(3,nodo3,null);
-            nodo3.setNext(nodo4);
-
+        @DisplayName("Test para borrar un elemento que no esta en la lista")
+        void removeTestNonInList(){
             DoublyLinkedListDeque<Object> listaTest = new DoublyLinkedListDeque<>();
-            listaTest.first=nodo1;
-            listaTest.last=nodo4;
-            listaTest.size=4;
+            listaTest.append(1);
+            listaTest.append(3);
+            listaTest.append(4);
+            listaTest.append(2);
 
-
-            listaTest.remove(5);
-            assertEquals(3,listaTest.size);
-            assertFalse(listaTest.contains(5));
+            listaTest.remove(6);
+            assertEquals(4,listaTest.size);
         }
+        @Test
+        @DisplayName("Test para borrar un elemento UNICO en la lista")
+        void removeTestOnlyOneInList(){
+            DoublyLinkedListDeque<Object> listaTest = new DoublyLinkedListDeque<>();
+            listaTest.append(1);
+            listaTest.append(3);
+            listaTest.append(4);
+            listaTest.append(2);
+
+            listaTest.remove(3);
+            assertEquals(3,listaTest.size);
+            assertFalse(listaTest.contains(3));
+        }
+
+        @Test
+        @DisplayName("Test para el ordenado natural con ningun nodo")
+        void sortedTestVoidList(){
+            DoublyLinkedListDeque<Integer> listaTest = new DoublyLinkedListDeque<>();
+            assertThrows(DoubleEndedQueueException.class,()->lista.contains(0));
+        }
+
+        @Test
+        @DisplayName("Test para el ordenado natural con uno o mas de un nodo")
+        void sortTesSomeNodes(){
+            DoublyLinkedListDeque<Integer> listaTest = new DoublyLinkedListDeque<>();
+            listaTest.append(2);
+            listaTest.append(4);
+            listaTest.append(3);
+            listaTest.append(1);
+
+            listaTest.sort(Comparator.naturalOrder());
+
+            assertEquals(1,listaTest.get(1));
+            assertEquals(2,listaTest.get(2));
+            assertEquals(3,listaTest.get(3));
+            assertEquals(4,listaTest.get(4));
+
+        }
+
+
     }
 }
