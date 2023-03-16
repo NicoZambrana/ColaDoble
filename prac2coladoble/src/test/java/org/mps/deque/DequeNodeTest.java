@@ -13,18 +13,18 @@ public class DequeNodeTest {
      * 1.GetItem devuelve el item correcto
      * 2.SetItem cambia correctamente el item
      * 3.getPrevius sea null
-     *              4.getPrevius sea un Nodo
+     * 4.getPrevius sea un Nodo
      * 5.SetPrevius sea null
      * 6.SetPrevius sea un Nodo
      * 7.Getnext sea null
-     *              8.Getnext sea Nodo
+     * 8.Getnext sea Nodo
      * 9.isFirstNode sea true
-     *              10.isfirstNode sea false
+     * 10.isfirstNode sea false
      * 11.isLastNode sea true
-     *              12.isLastNode sea false
-     *              13.isNotATerminalNode sea true
-     *              14.isNotATerminalNode sea false porque es First
-     *              15.isNotATerminalNode sea false porque es Last
+     * 12.isLastNode sea false
+     * 13.isNotATerminalNode sea true
+     * 14.isNotATerminalNode sea false porque es First
+     * 15.isNotATerminalNode sea false porque es Last
      * 16.SetNext sea null
      * 17.SetNext sea un nodo
      */

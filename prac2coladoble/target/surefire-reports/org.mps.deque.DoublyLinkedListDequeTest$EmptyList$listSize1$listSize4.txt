@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------
+Test set: org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4
+-------------------------------------------------------------------------------
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.constructorReturnsEmptyList  Time elapsed: 0.002 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.lastOnEmptyListThrowsException  Time elapsed: 0.003 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.firstOnEmptyListThrowsException  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.prependValue15WithEmptyList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.deleteFirstOnEmptyListThrowsException  Time elapsed: 0 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.deleteLastOnEmptyListThrowsException  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.sortOnEmptyListThrowsException  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.getOnEmptyListThrowsException  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.sizeOnEmptyListReturns0  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.containsOnEmptyListThrowsException  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.removeOnEmptyListThrowsException  Time elapsed: 0 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList.appendValue15WithEmptyList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1.appendNode  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1.deleteLastFromAListWithSize1ReturnsEmptyList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1.removeAnElementFromAListWithSize1ReturnsEmptyList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1.removeFromAListSize1AnElementThatItIsNotOnTheListDoesNothing  Time elapsed: 0.005 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1.deleteFirstFromAListWithSize1ReturnsEmptyList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1.prependNode  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.getWithIndexSizeMinus1ReturnsLastNode  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.sortOfAIntegerListReturnsTheListInAscendingOrder  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.firstElement  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.removeLastFromAListReturnsListWhereLastWillBePreviousFromThePreviousLast  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.removeMiddleElementFromListReturnsListWithSizeMinus1AndWithoutThatElement  Time elapsed: 0.002 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.containsAnElementSomewhereElseInTheList  Time elapsed: 0.002 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.lastElement  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.getWithIndex2ReturnsTheThirdNode  Time elapsed: 0.002 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.removeFirstFromAListReturnsListWhereFirstWillBeNextFromThePreviousFirst  Time elapsed: 0.002 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.getWithIndex0ReturnsFirstNode  Time elapsed: 0.002 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.deleteFirstOfAFullList  Time elapsed: 0 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.deleteLastOfAFullList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.containsAnElementThatIsNotInTheList  Time elapsed: 0.001 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.containsAnElementAtTheBeginningOfTheList  Time elapsed: 0 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.removeAnElementThatsIsNotOnTheListDoesNothing  Time elapsed: 0 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.getWithIndexSizeThrowsException  Time elapsed: 0.003 s
+org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4.getWithIndexMinus1ThrowsException  Time elapsed: 0.004 s

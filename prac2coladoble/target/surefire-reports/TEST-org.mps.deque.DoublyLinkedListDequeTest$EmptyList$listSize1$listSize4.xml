@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.029" tests="16" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.038" tests="35" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,20 +56,39 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="setItemCorrect" classname="org.mps.deque.DequeNodeTest$UniqueNode" time="0.07"/>
-  <testcase name="isLastNodeTrue" classname="org.mps.deque.DequeNodeTest$UniqueNode" time="0.002"/>
-  <testcase name="getItemCorrect" classname="org.mps.deque.DequeNodeTest$UniqueNode" time="0.002"/>
-  <testcase name="isFirstNodeTrue" classname="org.mps.deque.DequeNodeTest$UniqueNode" time="0.002"/>
-  <testcase name="setPreviusNode" classname="org.mps.deque.DequeNodeTest$UniqueNode" time="0.001"/>
-  <testcase name="setPreviusNull" classname="org.mps.deque.DequeNodeTest$UniqueNode" time="0.002"/>
-  <testcase name="getPreviusIsNull" classname="org.mps.deque.DequeNodeTest$UniqueNode" time="0.001"/>
-  <testcase name="setNextNode" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.001"/>
-  <testcase name="setNextNull" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.001"/>
-  <testcase name="getNextReturnsNextNode" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.002"/>
-  <testcase name="isNotATerminalNodeFalseForFirstNode" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.002"/>
-  <testcase name="isFirstNodeFalse" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.001"/>
-  <testcase name="isNotATerminalNodeFalseForLastNode" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.001"/>
-  <testcase name="isLastNodeFalse" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.001"/>
-  <testcase name="isNotATerminalNodeTrue" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.001"/>
-  <testcase name="getPreviousReturnsPreviousNode" classname="org.mps.deque.DequeNodeTest$UniqueNode$PreviousAndNext" time="0.002"/>
+  <testcase name="constructorReturnsEmptyList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.002"/>
+  <testcase name="lastOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.003"/>
+  <testcase name="firstOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="prependValue15WithEmptyList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="deleteFirstOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0"/>
+  <testcase name="deleteLastOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="sortOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="getOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="sizeOnEmptyListReturns0" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="containsOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="removeOnEmptyListThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0"/>
+  <testcase name="appendValue15WithEmptyList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList" time="0.001"/>
+  <testcase name="appendNode" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1" time="0.001"/>
+  <testcase name="deleteLastFromAListWithSize1ReturnsEmptyList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1" time="0.001"/>
+  <testcase name="removeAnElementFromAListWithSize1ReturnsEmptyList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1" time="0.001"/>
+  <testcase name="removeFromAListSize1AnElementThatItIsNotOnTheListDoesNothing" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1" time="0.005"/>
+  <testcase name="deleteFirstFromAListWithSize1ReturnsEmptyList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1" time="0.001"/>
+  <testcase name="prependNode" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1" time="0.001"/>
+  <testcase name="getWithIndexSizeMinus1ReturnsLastNode" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.001"/>
+  <testcase name="sortOfAIntegerListReturnsTheListInAscendingOrder" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.001"/>
+  <testcase name="firstElement" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.001"/>
+  <testcase name="removeLastFromAListReturnsListWhereLastWillBePreviousFromThePreviousLast" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.001"/>
+  <testcase name="removeMiddleElementFromListReturnsListWithSizeMinus1AndWithoutThatElement" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.002"/>
+  <testcase name="containsAnElementSomewhereElseInTheList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.002"/>
+  <testcase name="lastElement" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.001"/>
+  <testcase name="getWithIndex2ReturnsTheThirdNode" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.002"/>
+  <testcase name="removeFirstFromAListReturnsListWhereFirstWillBeNextFromThePreviousFirst" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.002"/>
+  <testcase name="getWithIndex0ReturnsFirstNode" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.002"/>
+  <testcase name="deleteFirstOfAFullList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0"/>
+  <testcase name="deleteLastOfAFullList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.001"/>
+  <testcase name="containsAnElementThatIsNotInTheList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.001"/>
+  <testcase name="containsAnElementAtTheBeginningOfTheList" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0"/>
+  <testcase name="removeAnElementThatsIsNotOnTheListDoesNothing" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0"/>
+  <testcase name="getWithIndexSizeThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.003"/>
+  <testcase name="getWithIndexMinus1ThrowsException" classname="org.mps.deque.DoublyLinkedListDequeTest$EmptyList$listSize1$listSize4" time="0.004"/>
 </testsuite>

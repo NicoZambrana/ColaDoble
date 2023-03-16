@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 public class DoublyLinkedListDequeTest {
-    /*
+    /**
     1. Constructor vacío devuelve una lista vacía
-    2. Prepend de un valor T a una lista VACÍA devuelve una lista con un nodo first y last iguales con el valor T
-    3. Prepend de un valor T a una lista devuelve la lista con un nuevo nodo first con el valor T
-    4. Append de un valor T a una lista VACÍA devuelve una lista con un nodo first y last iguales con el valor T
-    5. Append de un valor T a una lista devuelve la lista con un nuevo nodo last con el valor T
+    2. Prepend de un valor 15 a una lista VACÍA devuelve una lista con un nodo first y last iguales que no son null y una lista del tamaño 1
+    3. Prepend de un valor 15 a una lista devuelve la lista con un nuevo nodo first con el valor T
+    4. Append de un valor 15 a una lista VACÍA devuelve una lista con un nodo first y last iguales que no son null y una lista del tamaño 1
+    5. Append de un valor 15 a una lista devuelve la lista con un nuevo nodo last con el valor T
     6. DeleteFirst de una lista VACÍA lanza una excepción
     7. DeleteFirst de una lista SIZE=1 devuelve una lista vacía (null)
     8. DeleteFirst de una lista devuelve la lista donde su first será el NEXT del antiguo first
@@ -46,8 +46,6 @@ public class DoublyLinkedListDequeTest {
     33. Remove un elemento que no está en la lista no hace nada
     34. Sort de una lista vacía lanza una excepción
     35. Sort de una lista de integers devuelve la lista en orden ascendente
-
-
      */
     DoublyLinkedListDeque<Object> lista;
     @Nested
@@ -69,24 +67,16 @@ public class DoublyLinkedListDequeTest {
             assertEquals(0,lista.size);
         }
         @Test
-        @DisplayName("Prepend de un valor T a una lista VACÍA devuelve una lista con un nodo first y last iguales con el valor T")
-        void prependWithEmptyList(){
-            /*
-            DequeNode<Object> nodo= new DequeNode<Object>(15,null,null);
-            assertEquals(nodo,lista.first);
-            assertEquals(nodo,lista.last);
-
-            el test falla tanto como para assertEquals como para assertSame
-
-             */
+        @DisplayName("Prepend de un valor 15 a una lista VACÍA devuelve una lista con un nodo first y last iguales que no son null y una lista del tamaño 1")
+        void prependValue15WithEmptyList(){
             lista.prepend(15);
             assertNotNull(lista.first);
             assertNotNull(lista.last);
             assertEquals(1,lista.size);
         }
         @Test
-        @DisplayName("Append de un valor T a una lista VACÍA devuelve una lista con un nodo first y last iguales con el valor T")
-        void appendWithEmptyList(){
+        @DisplayName("Append de un valor 15 a una lista VACÍA devuelve una lista con un nodo first y last iguales que no son null y una lista del tamaño 1")
+        void appendValue15WithEmptyList(){
             lista.append(15);
             assertNotNull(lista.first);
             assertNotNull(lista.last);
@@ -137,7 +127,7 @@ public class DoublyLinkedListDequeTest {
         }
 
         @Test
-        @DisplayName("Sort de una lista vacía lanza uan excepción")
+        @DisplayName("Sort de una lista vacía lanza una excepción")
         void sortOnEmptyListThrowsException(){
             DoublyLinkedListDeque<Integer> listaint = new DoublyLinkedListDeque<>();
             assertThrows(DoubleEndedQueueException.class, ()->listaint.sort(Comparator.naturalOrder()));
@@ -146,217 +136,199 @@ public class DoublyLinkedListDequeTest {
 
 
         @Nested
-        @DisplayName("Pruebas con nodos dentro de la lista")
-        class fullList{
+        @DisplayName("Añadimos un solo nodo a la lista")
+        class listSize1{
             @BeforeEach
             void createList(){
-                //lista = new DoublyLinkedListDeque<>();
                 DequeNode<Object> nodo1=new DequeNode<>(12,null,null);
-                DequeNode<Object> nodo2=new DequeNode<>(13,nodo1,null);
-                nodo1.setNext(nodo2);
-                DequeNode<Object> nodo3=new DequeNode<>(14,nodo2,null);
-                nodo2.setNext(nodo3);
-                DequeNode<Object> nodo4=new DequeNode<>(15,nodo3,null);
-                nodo3.setNext(nodo4);
                 lista.first=nodo1;
-                lista.last=nodo4;
-                lista.size=4;
+                lista.last=nodo1;
+                lista.size=1;
 
             }
             @AfterEach
             void shutDown(){
             }
-
-
             @Test
-            @DisplayName("Prepend de un valor T a una lista devuelve la lista con un nuevo nodo first con el valor T")
+            @DisplayName("Prepend de un valor 99 a una lista devuelve la lista con un nuevo nodo first con el valor 99")
             void prependNode(){
                 lista.prepend(99);
                 assertEquals(99,lista.first.item);
             }
-             @Test
-            @DisplayName("Append de un valor T a una lista devuelve la lista con un nuevo nodo last con el valor T")
+            @Test
+            @DisplayName("Append de un valor 99 a una lista devuelve la lista con un nuevo nodo last con el valor 99")
             void appendNode(){
                 lista.append(99);
                 assertEquals(99,lista.last.item);
             }
-            // 7. DeleteFirst de una lista SIZE=1 devuelve una lista vacía (null)
             @Test
             @DisplayName("DeleteFirst de una lista SIZE=1 devuelve una lista vacía (null)")
-            void deletefirstFromAListWithSize1ReturnsEmptyList(){
-                DoublyLinkedListDeque<Object> lista1 = new DoublyLinkedListDeque<>();
-                DequeNode<Object> nodoAux=new DequeNode<>(12,null,null);
-                lista1.first=nodoAux;
-                lista1.last=nodoAux;
-                lista1.size=1;
-                lista1.deleteFirst();
-                assertNull(lista1.first);
-                assertNull(lista1.last);
-                assertEquals(0,lista1.size);
-            }
-            // 8. DeleteFirst de una lista devuelve la lista donde su first será el NEXT del antiguo first
-            @Test
-            @DisplayName("DeleteFirst de una lista con mas de un elemento")
-            void deleteFirstOfAFullList(){
-                DequeNode<Object> nextNodo=lista.first.next;
+            void deleteFirstFromAListWithSize1ReturnsEmptyList(){
                 lista.deleteFirst();
-                assertEquals(nextNodo,lista.first);
-                assertEquals(3,lista.size);
+                assertNull(lista.first);
+                assertNull(lista.last);
+                assertEquals(0,lista.size);
             }
-            // 10. DeleteLast de una lista SIZE=1 devuelve una lista vacía (null)
             @Test
             @DisplayName("DeleteFirst de una lista SIZE=1 devuelve una lista vacía (null)")
-            void deleteLasttFromAListWithSize1ReturnsEmptyList(){
-                DoublyLinkedListDeque<Object> lista1 = new DoublyLinkedListDeque<>();
-                DequeNode<Object> nodoAux=new DequeNode<>(12,null,null);
-                lista1.first=nodoAux;
-                lista1.last=nodoAux;
-                lista1.size=1;
-                lista1.deleteLast();
-                assertNull(lista1.first);
-                assertNull(lista1.last);
-                assertEquals(0,lista1.size);
-            }
-            // 11. DeleteLast de una lista devuelve la lista donde su last será el PREVIOUS del antiguo last
-            @Test
-            @DisplayName("DeleteFirst de una lista con mas de un elemento")
-            void deleteLastOfAFullList(){
-                DequeNode<Object> previousNodo=lista.last.previous;
+            void deleteLastFromAListWithSize1ReturnsEmptyList(){
                 lista.deleteLast();
-                assertEquals(previousNodo,lista.last);
-                assertEquals(3,lista.size);
-            }
-            //13. First de una lista devuelve el primer elemento
-            @Test
-            @DisplayName("First de una lista devuelve el primer elemento")
-            void firstElement(){
-                assertEquals(12,lista.first());
-            }
-            //15. Last de una lista devuelve el último elemento
-            @Test
-            @DisplayName("Last de una lista devuelve el último elemento")
-            void lastElement(){
-                assertEquals(15,lista.last());
-            }
-
-            @Test
-            @DisplayName("Get de una lista con índice 0 le devuelve el primero")
-            void getWithIndex0ReturnsFirstNode(){
-                assertEquals(lista.first.item,lista.get(0));
-            }
-            @Test
-            @DisplayName("Get de una lista con índice size-1 le devuelve el último")
-            void getWithIndexSizeMinus1ReturnsLastNode(){
-                assertEquals(lista.last.item,lista.get(lista.size-1));
-            }
-
-            @Test
-            @DisplayName("Get de una lista con índice 2 le devuelve el tercero")
-            void getWithIndex2ReturnsTheThirdNode(){
-                assertEquals(lista.last.previous.item,lista.get(2));
-            }
-            @Test
-            @DisplayName("Get de una lista con índice -1 lanza una excepción")
-            void getWithIndexMinus1ThrowsException(){
-                assertThrows(IndexOutOfBoundsException.class, ()->lista.get(-1));
-            }
-            @Test
-            @DisplayName("Get de una lista con índice size lanza una excepción")
-            void getWithIndexSizeThrowsException(){
-                assertThrows(IndexOutOfBoundsException.class,()->lista.get(lista.size));
-            }
-            @Test
-            @DisplayName("Contains de una lista con elemento incluido el primero")
-            void containsAnElementAtTheBeginningOfTheList(){
-                assertTrue(lista.contains(12));
-            }
-            @Test
-            @DisplayName("Contains de una lista con elemento incluido el segundo")
-            void containsAnElementSomewhereElseInTheList(){
-                assertTrue(lista.contains(13));
-            }
-            @Test
-            @DisplayName("Contains de una lista con elemento no incluido")
-            void containsAnElementThatIsNotInTheList(){
-                assertFalse(lista.contains(20));
+                assertNull(lista.first);
+                assertNull(lista.last);
+                assertEquals(0,lista.size);
             }
             @Test
             @DisplayName("Remove de una lista SIZE=1 devuelve una lista vacía (null)")
             void removeAnElementFromAListWithSize1ReturnsEmptyList(){
-                DoublyLinkedListDeque<Object> lista1 = new DoublyLinkedListDeque<>();
-                DequeNode<Object> nodoAux=new DequeNode<>(12,null,null);
-                lista1.first=nodoAux;
-                lista1.last=nodoAux;
-                lista1.size=1;
-                lista1.remove(12);
-                assertNull(lista1.first);
-                assertNull(lista1.last);
-                assertEquals(0,lista1.size);
+                lista.remove(12);
+                assertNull(lista.first);
+                assertNull(lista.last);
+                assertEquals(0,lista.size);
             }
             @Test
             @DisplayName("Remove de una lista SIZE=1 un elemento que no está en la lista no hace nada")
             void removeFromAListSize1AnElementThatItIsNotOnTheListDoesNothing(){
-                DoublyLinkedListDeque<Object> lista1 = new DoublyLinkedListDeque<>();
-                DequeNode<Object> nodoAux=new DequeNode<>(12,null,null);
-                lista1.first=nodoAux;
-                lista1.last=nodoAux;
-                lista1.size=1;
-                lista1.remove(20);
-                assertNotNull(lista1.first);
-                assertNotNull(lista1.last);
-                assertEquals(1,lista1.size);
-            }
-            @Test
-            @DisplayName("Remove el primer elemento de una lista devuelve la lista donde su first será el NEXT del antiguo first")
-            void removeFirstFromAListReturnsListWhereFirstWillBeNextFromThePreviousFirst(){
-                DequeNode<Object> nextNodo=lista.first.next;
-                lista.remove(12);
-                assertEquals(nextNodo,lista.first);
-                assertEquals(3,lista.size);
-
-            }
-            @Test
-            @DisplayName("Remove el último elemento de una lista devuelve la lista donde su last será el PREVIOUS del antiguo last")
-            void removeLastFromAListReturnsListWhereLastWillBePreviousFromThePreviousLast(){
-                DequeNode<Object> previousNodo=lista.last.previous;
-                lista.remove(15);
-                assertEquals(previousNodo,lista.last);
-                assertEquals(3,lista.size);
-            }
-            @Test
-            @DisplayName("Remove un elemento intermedio de la lista devuelve la lista con size-1 y sin ese elemento")
-            void removeMiddleElementFromListReturnsListWithSizeMinus1AndWithoutThatElement(){
-                int size = lista.size;
-                lista.remove(13);
-                assertEquals(size-1,lista.size);
-                assertFalse(lista.contains(13));
-            }
-            @Test
-            @DisplayName("Remove un elemento que no está en la lista no hace nada")
-            void removeAnElementThatsIsNotOnTheListDoesNothing(){
-                int size = lista.size;
                 lista.remove(20);
-                assertEquals(size,lista.size);
+                assertNotNull(lista.first);
+                assertNotNull(lista.last);
+                assertEquals(1,lista.size);
             }
-            @Test
-            @DisplayName("Sort de una lista de integers devuelve la lista en orden ascendente")
-            void sortOfAIntegerListReturnsTheListInAscendingOrder(){
-                DoublyLinkedListDeque<Integer> listaTest = new DoublyLinkedListDeque<>();
-                listaTest.append(2);
-                listaTest.append(4);
-                listaTest.append(3);
-                listaTest.append(1);
+            @Nested
+            @DisplayName("Añadimos 3 nodos más")
+            class listSize4{
+                @BeforeEach
+                void add3Nodes(){
+                    DequeNode<Object> nodo2=new DequeNode<>(13,lista.first,null);
+                    lista.first.setNext(nodo2);
+                    DequeNode<Object> nodo3=new DequeNode<>(14,nodo2,null);
+                    nodo2.setNext(nodo3);
+                    DequeNode<Object> nodo4=new DequeNode<>(15,nodo3,null);
+                    nodo3.setNext(nodo4);
+                    lista.last=nodo4;
+                    lista.size=4;
 
-                listaTest.sort(Comparator.naturalOrder());
+                }
+                @AfterEach
+                void shutDown(){
+                }
+                @Test
+                @DisplayName("DeleteFirst de una lista devuelve la lista donde su first será el NEXT del antiguo first")
+                void deleteFirstOfAFullList(){
+                    DequeNode<Object> nextNodo=lista.first.next;
+                    lista.deleteFirst();
+                    assertEquals(nextNodo,lista.first);
+                    assertEquals(3,lista.size);
+                }
+                @Test
+                @DisplayName("DeleteLast de una lista devuelve la lista donde su last será el PREVIOUS del antiguo last")
+                void deleteLastOfAFullList(){
+                    DequeNode<Object> previousNodo=lista.last.previous;
+                    lista.deleteLast();
+                    assertEquals(previousNodo,lista.last);
+                    assertEquals(3,lista.size);
+                }
+                @Test
+                @DisplayName("First de una lista devuelve el primer elemento")
+                void firstElement(){
+                    assertEquals(12,lista.first());
+                }
+                @Test
+                @DisplayName("Last de una lista devuelve el último elemento")
+                void lastElement(){
+                    assertEquals(15,lista.last());
+                }
+                @Test
+                @DisplayName("Get de una lista con índice 0 le devuelve el primero")
+                void getWithIndex0ReturnsFirstNode(){
+                    assertEquals(lista.first.item,lista.get(0));
+                }
+                @Test
+                @DisplayName("Get de una lista con índice size-1 le devuelve el último")
+                void getWithIndexSizeMinus1ReturnsLastNode(){
+                    assertEquals(lista.last.item,lista.get(lista.size-1));
+                }
+                @Test
+                @DisplayName("Get de una lista con índice 2 le devuelve el tercero")
+                void getWithIndex2ReturnsTheThirdNode(){
+                    assertEquals(lista.last.previous.item,lista.get(2));
+                }
+                @Test
+                @DisplayName("Get de una lista con índice -1 lanza una excepción")
+                void getWithIndexMinus1ThrowsException(){
+                    assertThrows(IndexOutOfBoundsException.class, ()->lista.get(-1));
+                }
+                @Test
+                @DisplayName("Get de una lista con índice size lanza una excepción")
+                void getWithIndexSizeThrowsException(){
+                    assertThrows(IndexOutOfBoundsException.class,()->lista.get(lista.size));
+                }
+                @Test
+                @DisplayName("Contains de una lista con elemento incluido el primero")
+                void containsAnElementAtTheBeginningOfTheList(){
+                    assertTrue(lista.contains(12));
+                }
+                @Test
+                @DisplayName("Contains de una lista con elemento incluido el segundo")
+                void containsAnElementSomewhereElseInTheList(){
+                    assertTrue(lista.contains(13));
+                }
+                @Test
+                @DisplayName("Contains de una lista con elemento no incluido")
+                void containsAnElementThatIsNotInTheList(){
+                    assertFalse(lista.contains(20));
+                }
+                @Test
+                @DisplayName("Remove el primer elemento de una lista devuelve la lista donde su first será el NEXT del antiguo first")
+                void removeFirstFromAListReturnsListWhereFirstWillBeNextFromThePreviousFirst(){
+                    DequeNode<Object> nextNodo=lista.first.next;
+                    lista.remove(12);
+                    assertEquals(nextNodo,lista.first);
+                    assertEquals(3,lista.size);
 
-                assertEquals(1,listaTest.get(0));
-                assertEquals(2,listaTest.get(1));
-                assertEquals(3,listaTest.get(2));
-                assertEquals(4,listaTest.get(3));
+                }
+                @Test
+                @DisplayName("Remove el último elemento de una lista devuelve la lista donde su last será el PREVIOUS del antiguo last")
+                void removeLastFromAListReturnsListWhereLastWillBePreviousFromThePreviousLast(){
+                    DequeNode<Object> previousNodo=lista.last.previous;
+                    lista.remove(15);
+                    assertEquals(previousNodo,lista.last);
+                    assertEquals(3,lista.size);
+                }
+                @Test
+                @DisplayName("Remove un elemento intermedio de la lista devuelve la lista con size-1 y sin ese elemento")
+                void removeMiddleElementFromListReturnsListWithSizeMinus1AndWithoutThatElement(){
+                    int size = lista.size;
+                    lista.remove(13);
+                    assertEquals(size-1,lista.size);
+                    assertFalse(lista.contains(13));
+                }
+                @Test
+                @DisplayName("Remove un elemento que no está en la lista no hace nada")
+                void removeAnElementThatsIsNotOnTheListDoesNothing(){
+                    int size = lista.size;
+                    lista.remove(20);
+                    assertEquals(size,lista.size);
+                }
+                @Test
+                @DisplayName("Sort de una lista de integers devuelve la lista en orden ascendente")
+                void sortOfAIntegerListReturnsTheListInAscendingOrder(){
+                    DoublyLinkedListDeque<Integer> listaTest = new DoublyLinkedListDeque<>();
+                    listaTest.append(2);
+                    listaTest.append(4);
+                    listaTest.append(3);
+                    listaTest.append(1);
+
+                    listaTest.sort(Comparator.naturalOrder());
+
+                    assertEquals(1,listaTest.get(0));
+                    assertEquals(2,listaTest.get(1));
+                    assertEquals(3,listaTest.get(2));
+                    assertEquals(4,listaTest.get(3));
+                }
+
             }
+
         }
-
-
 
     }
 }
