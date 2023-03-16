@@ -124,7 +124,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
             DequeNode<T> curr = this.first;
             int cont=0;
 
-            while(cont<=index && curr!=null){
+            while(curr!=null){
                 if(cont==index){
                     res= curr.item;
                     curr=null;
@@ -165,7 +165,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     @Override
     public void remove(T value) {
         if(this.size==0) {
-            //No hace nada
+            throw new DoubleEndedQueueException("Cola vacía");
         } else if (size==1) {
             if(first.getItem()==value){
                 first=null;
@@ -216,7 +216,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public void sort(Comparator<? super T> comparator) {
         //TODO
         if(size==0 ){
-            throw new RuntimeException("Lista vacia");
+            throw new DoubleEndedQueueException("Cola vacía");
         }else{
 
             DequeNode<T> firstAux=first;
